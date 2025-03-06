@@ -96,27 +96,7 @@ const ExperimentCard = ({ title, code, image, video, icon: Icon, delay }) => {
 };
 
 
-function VisitorCounter() {
-  const [count, setCount] = useState(0);
-  
-  useEffect(() => {
-    // Simulate fetching visitor count from localStorage
-    const storedCount = localStorage.getItem('visitorCount');
-    const initialCount = storedCount ? parseInt(storedCount, 10) : 0;
-    
-    // Increment count for this visit
-    const newCount = initialCount + 1;
-    setCount(newCount);
-    localStorage.setItem('visitorCount', newCount.toString());
-  }, []);
-  
-  return (
-    <div className="fixed bottom-4 right-4 bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-4 py-2 rounded-full shadow-lg z-50 flex items-center space-x-2">
-      <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-      <span className="font-medium">{count} Visitors</span>
-    </div>
-  );
-}
+
 
 function ReferenceNote() {
   return (
@@ -755,8 +735,7 @@ def lambda_handler(event, context):
         )}
       </main>
       
-      {/* Visitor Counter */}
-      <VisitorCounter />
+      
       
       {/* Copyright Notice */}
       <div className="text-center py-6 bg-white border-t border-gray-200">
